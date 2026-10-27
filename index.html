@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harry Potter Web</title>
+<link rel="icon" href="data:,">
+<style>
+  :root { --bg:#000; --fg:#e8dcb5; --accent:#c9a227; }
+  html, body { margin:0; height:100%; background:var(--bg); color:var(--fg); font-family: Georgia, "Songti TC", serif; overflow:hidden; }
+  canvas { display:block; }
+  #hud { position:fixed; left:12px; top:10px; font-size:13px; pointer-events:none; text-shadow:0 1px 2px #000; white-space:pre; }
+  #loading { position:fixed; inset:0; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:12px; background:#000; z-index:10; }
+  #loading .bar { width:min(420px, 80vw); height:6px; background:#222; border-radius:3px; overflow:hidden; }
+  #loading .bar div { height:100%; width:0; background:var(--accent); transition:width .2s; }
+  #maps { position:fixed; right:12px; top:10px; z-index:5; background:#111d; color:var(--fg); border:1px solid #554; padding:4px; }
+</style>
+</head>
+<body>
+<div id="loading"><div id="loadtext">Loading…</div><div class="bar"><div id="loadbar"></div></div></div>
+<div id="hud"></div>
+<select id="maps"></select>
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>

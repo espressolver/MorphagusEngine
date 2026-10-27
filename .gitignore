@@ -1,0 +1,39 @@
+# No original game assets or reference sources in this repository, ever:
+# the game data comes from the user's own installation at run time.
+HarryPotter2/
+*.zip
+*.unr
+*.u
+*.utx
+*.uax
+*.umx
+*.int
+*.tra
+*.ini
+*.bmp
+*.wav
+*.mp3
+/game/
+/Maps/
+/System/
+/Textures/
+/Sounds/
+/Music/
+/Help/
+/save/
+hpdebug_*.json
+/jsonDumps/
+
+# build / dependencies
+node_modules/
+dist/
+
+# tools: only the maintained ones (the rest are throwaway debugging scripts)
+tools/*
+!tools/naive/
+!tools/package.sh
+!tools/shot.mjs
+!tools/playthrough.mjs
+!tools/natives.mjs
+
+.DS_Store
