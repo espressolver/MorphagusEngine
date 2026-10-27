@@ -14,8 +14,9 @@ import { FUNC } from '../../uscript/loader.js';
 
 export const BASE_PACKAGES = ['Core', 'Engine', 'Fire', 'UWindow', 'HPBase', 'HPParticle', 'HPModels', 'HPSounds',
   'HarryPotter', 'HProps', 'HPMenu', 'HPDialog', 'HPPuzzle', 'UnrealShare'];
-// sound packages scripts load by name at run time (DynamicLoadObject)
-const DYNAMIC_PACKAGES = ['AllDialog'];
+// packages scripts load by name at run time (DynamicLoadObject, which the engine does synchronously): the
+// dialog lines, the menu / console fonts (UWindowFonts' Tahoma for the English menus) and the menu art
+const DYNAMIC_PACKAGES = ['AllDialog', 'UWindowFonts', 'HPFonts', 'MenuArt', 'Japanese'];
 
 // the typed sequence that toggles the door mode (see keyEvent)
 const DOOR_MODE_SEQUENCE = 'alohomora';
@@ -223,8 +224,8 @@ export class Engine {
     if (this.level) this.unloadLevel();
     const level = new GameLevel(this, mapName);
     this.level = level;
-    // the dialog package: scripts fetch lines with DynamicLoadObject("AllDialog.<id>"), which the engine
-    // loads synchronously, so it must be in memory before the level runs (first lines were silent otherwise)
+    // packages scripts fetch with DynamicLoadObject, which the engine loads synchronously: they must be in
+    // memory before the level runs (first dialog lines were silent, the English menus had no font otherwise)
     const dialogs = DYNAMIC_PACKAGES.filter(p => this.assets.has(p)).map(p => this.assets.pkg(p));
     await this.loadAllLocales();
     await level.load();
