@@ -39,3 +39,9 @@ node tools/naive/run.mjs Lev_Tut1 Lev_Tut1  # input-driven playthrough bot
 
 `docs/engine-parity.md` lists every engine module and how it was checked; `docs/debugging.md` describes the
 debug tools.
+
+## License
+
+The engine code is released under the MIT License (see `LICENSE`). It covers this code only: Harry Potter
+and the game itself, its data and its scripts belong to their respective owners and are not part of this
+repository.
